@@ -1,0 +1,20 @@
+name: "PR Checks"
+on: [pull_request]
+
+jobs:
+  check_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: "yarn install"
+        run: yarn
+
+      - name: "yarn send"
+        run: yarn send
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          GITHUB_OWNER: novatopo
+          GITHUB_REPO: novatopo-email
+          GITHUB_PR: 8

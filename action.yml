@@ -1,0 +1,6 @@
+name: "Mjml to sendgrid actions"
+description: "Get started with Node actions"
+author: "HeadFox"
+runs:
+  using: "node12"
+  main: "lib/main.js"
